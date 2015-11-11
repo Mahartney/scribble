@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  @user = :user
+
   def index
   end
 

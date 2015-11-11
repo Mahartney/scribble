@@ -1,11 +1,26 @@
 <h1>Blog Posts</h1>
 <h2>Recent Posts:</h2>
 <table>
+  <tr>
+    <td>
+      Updated At
+    </td>
+    <td>
+      Blog Post
+    </td>
+    <td>
+      Delete
+    </td>
+    <td>
+      Created By
+    </td>
+  </tr>
   <% @post.each do |post| %>
     <tr>
       <td> <%= post.updated_at.strftime("%m/%d/%y, %r")%> </td>
       <td> <%= link_to post.title, post %> </td>
       <td> <%= link_to "(X)", post, method: :delete %> </td>
+      <td> <%= current_user.email %> </td>
     </tr>
   <% end %>
 <table>
