@@ -1,0 +1,6 @@
+<%= link_to "Back", @post %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :body, placeholder: "Add Comment?" %>
+  <%= f.submit %>
+<% end %>
