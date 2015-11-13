@@ -20,7 +20,10 @@
       <td> <%= post.updated_at.strftime("%m/%d/%y, %r")%> </td>
       <td> <%= link_to post.title, post %> </td>
       <td> <%= link_to "(X)", post, method: :delete %> </td>
-      <td> <%= current_user.email %> </td>
+      <td> <%= post.user.email %> </td>
     </tr>
   <% end %>
 <table>
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>

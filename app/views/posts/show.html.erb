@@ -2,13 +2,20 @@
 
 
 <h1> <%= @post.title %> </h1>
+<h4> By: <%= @post.user.email %> </h4>
 <%= link_to "Edit Blog Post", edit_post_path(@post) %>
 <%= link_to "Add Comment", new_post_comment_path( @post ) %>
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 
 <p> <%= @post.body %> </p>
 
 <% @post.comments.each do |comment| %>
 <a> <%= link_to "Delete Comment", post_comment_path(@post.id, comment.id), method: :delete %></a>
 <a> <%= link_to "Edit Comment", edit_post_comment_path(@post.id, comment.id) %></a>
-<p> <%= comment.body %> </p>
+<% if flash[:comment_alert] %>
+  <div class="comment_alert"><%= flash[:comment_alert] %></div>
+<% end %>
+<p> <%= comment.user.email %>: <%= comment.body %> </p>
 <% end %>
